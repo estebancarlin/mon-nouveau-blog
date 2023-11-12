@@ -1,0 +1,35 @@
+{% extends 'animalerie/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if messages%}
+<div class="messages">
+    {% for message in messages %}
+    <h4 {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</h4>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div class="cards_ani">
+    <article class="card">
+        <header>
+            <h3> {{ animal.id_animal }} </h3>
+        </header>
+        <img src='../../{{animal.photo}}' style="max-width: 120px; max-height: 100px; margin-bottom: 15px;" alt="Pas d'image"/>
+        <p>Etat: {{ animal.etat }}</p>
+        <p>Type: {{animal.type}} </p>
+        <p>Race: {{animal.race}} </p>
+        <p>Lieu: {{ animal.lieu }}</p>
+    </article>
+</div>
+<p></p>
+
+<form method="POST" class="post-form"> {% csrf_token %}
+    <b> Veuiller choisir un nouvel endroit pour {{ animal.id_animal }} </b> 
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Valider</button>
+    <a href="{% url 'animal_list' %}" class="btn btn-secondary" role="button">Retour</a>
+</form>
+</div>
+{% endblock %}

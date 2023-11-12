@@ -1,0 +1,56 @@
+{% extends 'animalerie/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <h3>Les animaux</h3>
+
+    <div class="animaux">
+    {% for animal in animaux %}
+        <div class="fiche_animal">
+
+            <div class="nom_animal">
+                <a href="{% url 'post_detail' id_animal=animal.id_animal %}">{{ animal.id_animal }}</a>
+            </div>
+            
+            <img class="image_animal" src='{{animal.photo}}' alt="Pas d'image"/>
+
+            <div class="description_animal">
+                Race : {{ animal.race }}
+            </div>
+            <br>
+            <div class="etat_animal">
+                Etat : {{ animal.etat }}
+            </div>
+
+            <div class="lieu_animal">
+                Lieu : {{ animal.lieu }}
+            </div>
+            
+        </div>
+    {% endfor %}
+    </div>
+
+    <h3>Les équipements</h3>
+
+    <div class="equipements">
+    {% for equip in equipements %}
+        <div class="fiche_equipement">
+
+            <div class="nom_equipement">
+                {{ equip.id_equip }}
+            </div>
+
+            <div class="disponibilite_equipement">
+                Disponibilité : {{ equip.disponibilite }}
+            </div>
+            <br>
+
+            <img class="image_equipement" src={{equip.photo}} alt="Pas d'image"/>
+
+            <br>
+        </div>
+    {% endfor %}
+    </div>
+
+{% endblock %}

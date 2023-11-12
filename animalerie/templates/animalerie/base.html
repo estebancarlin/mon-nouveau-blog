@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title> Animalerie d'Esteban Carlin</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/animalerie.css' %}">
+    </head>
+
+    <body>
+        <div class="titre">
+            <h1> Bienvenue dans l'animalerie d'Esteban Carlin</h1>
+        </div>
+            
+        <h3>Vous pouvez intéragir avec tous les animaux, merci de prendre soin d'eux !</h3>
+
+        <div class="card" style="margin: 30px; border: 3px solid rgb(178, 168, 32); padding: 10px;"> 
+            <div class="card-body"> 
+                <h4 class="card-title" style="font-weight: bold">Comment s'occuper des animaux ?</h4> 
+                <p class="card-text">Les animaux enchaînent différents états tout au long de la journée: 
+                    <br/>
+                    <li>Au réveil, ils sont affamés et doivent donc être nourris, dans la mangeoire.</li>
+                    <li>Une fois leur repas fini, ils sont repus et veulent faire un peu d'exercice. Direction la roue !</li> 
+                    <li>Après le sport, ils sont fatigués. Direction dodo, direction le nid.</li>
+                    Et on recommence…
+                </p>
+            </div> 
+        </div>
+        <div class="container">
+            <div class="row">
+                <div>
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+
+            </div>
+
+        </div>
+    </body>
+
+</html>
